@@ -45,6 +45,7 @@ spec:
             httpGet:
               path: /
               port: http
+            periodSeconds: 60
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       {{- with .Values.nodeSelector }}
