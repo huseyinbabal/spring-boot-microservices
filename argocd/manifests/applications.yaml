@@ -10,7 +10,7 @@ spec:
   source:
     repoURL: https://github.com/huseyinbabal/spring-boot-microservices
     path: charts/inventory
-    targetRevision: "HEAD"
+    targetRevision: "gh-actions"
     helm:
       valueFiles:
         - values.yaml
@@ -35,7 +35,7 @@ spec:
   source:
     repoURL: https://github.com/huseyinbabal/spring-boot-microservices
     path: charts/shipping
-    targetRevision: "HEAD"
+    targetRevision: "gh-actions"
     helm:
       valueFiles:
         - values.yaml
@@ -60,7 +60,7 @@ spec:
   source:
     repoURL: https://github.com/huseyinbabal/spring-boot-microservices
     path: charts/order
-    targetRevision: "HEAD"
+    targetRevision: "gh-actions"
     helm:
       valueFiles:
         - values.yaml

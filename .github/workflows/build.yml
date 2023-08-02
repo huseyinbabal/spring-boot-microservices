@@ -50,6 +50,7 @@ jobs:
           file: ${{ matrix.image_name }}/Dockerfile
           push: true
           tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
           secrets: |
             GITHUB_TOKEN=${{ secrets.GH_TOKEN }}
 
