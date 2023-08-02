@@ -1,0 +1,37 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: spring-boot-microservices
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  description: Spring applications.
+
+  # Allow manifests to deploy only from specific Git repos
+  sourceRepos:
+    - "https://github.com/huseyinbabal/spring-boot-microservices"
+
+  # Only permit applications to deploy to the prod namespace in the same cluster
+  destinations:
+    - namespace: "argocd"
+      server: "https://kubernetes.default.svc"
+
+  # Deny all cluster-scoped resources from being created, except for Namespace
+  clusterResourceWhitelist:
+    - group: ''
+      kind: "Namespace"
+    - group: ''
+      kind: "ClusterRole"
+    - group: ''
+      kind: "ClusterRoleBinding"
+
+  # Allow all namespaced-scoped resources to be created, except for ResourceQuota, LimitRange, NetworkPolicy
+  namespaceResourceBlacklist:
+    - group: ''
+      kind: ResourceQuota
+    - group: ''
+      kind: LimitRange
+    - group: ''
+      kind: NetworkPolicy
