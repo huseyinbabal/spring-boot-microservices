@@ -39,11 +39,11 @@ spec:
               protocol: TCP
           livenessProbe:
             httpGet:
-              path: /actuator/info
+              path: /actuator/health
               port: http
           readinessProbe:
             httpGet:
-              path: /actuator/info
+              path: /actuator/health
               port: http
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
